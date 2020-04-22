@@ -59,7 +59,8 @@ public class Step01VariableTest extends PlainTestCase {
         sea = land;
         land = land + "'s dreams";
         log(sea); // your answer? => oneman
-        //
+        log(land);
+        // sea = land; is before the new assignment of land
     }
 
     /** Same as the previous method question. (前のメソッドの質問と同じ) */
@@ -109,8 +110,8 @@ public class Step01VariableTest extends PlainTestCase {
     /** Same as the previous method question. (前のメソッドの質問と同じ) */
     public void test_variable_instance_variable_default_Integer() {
         Integer sea = instanceHangar;
-        log(sea); // your answer? => null
-        // idk why
+        log(sea); // your answer? => idk -> null
+        // The default value of private integer is null
     }
 
     /** Same as the previous method question. (前のメソッドの質問と同じ) */
@@ -120,9 +121,8 @@ public class Step01VariableTest extends PlainTestCase {
         helpInstanceVariableViaMethod(instanceMagiclamp);
         String sea = instanceBroad + "|" + instanceDockside + "|" + instanceHangar + "|" + instanceMagiclamp;
         log(sea); // your answer? => bigband|1|null|magician
-        log(instanceBroad);
-        log(instanceDockside);
-        log(instanceHangar);
+
+        // assigned by the private void.
     }
 
     private void helpInstanceVariableViaMethod(String instanceMagiclamp) {
@@ -142,7 +142,8 @@ public class Step01VariableTest extends PlainTestCase {
         String sea = "harbor";
         int land = 415;
         helpMethodArgumentImmutableMethodcall(sea, land);
-        log(sea); // your answer? => harbor
+        log(sea); // your answer? => idk -> harbor
+        // sea.concat(landStr);
     }
 
     private void helpMethodArgumentImmutableMethodcall(String sea, int land) {
@@ -162,13 +163,13 @@ public class Step01VariableTest extends PlainTestCase {
         int land = 415;
         helpMethodArgumentMethodcall(sea, land);
         log(sea); // your answer? => harbor416
+        // the difference between concat and append
     }
 
     private void helpMethodArgumentMethodcall(StringBuilder sea, int land) {
         ++land;
         sea.append(land);
     }
-    // the difference between concat and append
 
     // -----------------------------------------------------
     //                                   Variable Assignment
@@ -208,6 +209,9 @@ public class Step01VariableTest extends PlainTestCase {
      */
     public void test_variable_writing() {
         String sea = "mystic"; // define variables here
+        Integer land = null;
+        int piari;
+        log(sea, land);
     }
 
     // ===================================================================================
@@ -223,6 +227,10 @@ public class Step01VariableTest extends PlainTestCase {
      * _/_/_/_/_/_/_/_/_/_/
      * </pre>
      */
+
+    private String a;
+    private int b;
+    private Integer c;
     public void test_variable_yourExercise() {
         // write your code here
     }
