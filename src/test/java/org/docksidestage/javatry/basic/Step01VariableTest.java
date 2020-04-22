@@ -49,7 +49,7 @@ public class Step01VariableTest extends PlainTestCase {
         String dstore = "mai";
         sea = sea + land + piari + ":" + dstore;
         log(sea); // your answer? => mystic8null:mai
-        // TODO test TODO, the 'null' is an integer so it will be printed
+        // the 'null' is an integer so it will be printed
     }
 
     /** Same as the previous method question. (前のメソッドの質問と同じ) */
@@ -59,6 +59,7 @@ public class Step01VariableTest extends PlainTestCase {
         sea = land;
         land = land + "'s dreams";
         log(sea); // your answer? => oneman
+        //
     }
 
     /** Same as the previous method question. (前のメソッドの質問と同じ) */
@@ -66,9 +67,10 @@ public class Step01VariableTest extends PlainTestCase {
         int sea = 94;
         int land = 415;
         sea = land;
-        land++; // same as ++land?
+        land++; //
         log(sea); // your answer? => 415
         log(land); // land => 416
+        // is land++ the same as ++land ?
     }
 
     /** Same as the previous method question. (前のメソッドの質問と同じ) */
@@ -79,7 +81,7 @@ public class Step01VariableTest extends PlainTestCase {
         sea = land.add(new BigDecimal(1));
         sea.add(new BigDecimal(1));
         log(sea); // your answer? => 416
-        // TODO why?
+        // add & BigDecimal
     }
 
     // ===================================================================================
@@ -93,15 +95,15 @@ public class Step01VariableTest extends PlainTestCase {
     /** Same as the previous method question. (前のメソッドの質問と同じ) */
     public void test_variable_instance_variable_default_String() {
         String sea = instanceBroad;
-        log(sea); // your answer? => null
-        // what is "private mode"?
+        log(sea); // your answer? => idk -> null
+        // The default value of private String is null
     }
 
     /** Same as the previous method question. (前のメソッドの質問と同じ) */
     public void test_variable_instance_variable_default_int() {
         int sea = instanceDockside;
-        log(sea); // your answer? => 0
-        // idk why
+        log(sea); // your answer? => idk -> 0
+        // The default value of private int is zero
     }
 
     /** Same as the previous method question. (前のメソッドの質問と同じ) */
