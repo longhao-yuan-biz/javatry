@@ -42,6 +42,7 @@ public class Step02IfForTest extends PlainTestCase {
             sea = 2001;
         }
         log(sea); // your answer? => 2001
+        // 2001
     }
 
     /** Same as the previous method question. (前のメソッドの質問と同じ) */
@@ -52,7 +53,8 @@ public class Step02IfForTest extends PlainTestCase {
         } else {
             sea = 7;
         }
-        log(sea); // your answer? => 
+        log(sea); // your answer? => 7
+        // if statement
     }
 
     /** Same as the previous method question. (前のメソッドの質問と同じ) */
@@ -67,7 +69,8 @@ public class Step02IfForTest extends PlainTestCase {
         } else {
             sea = 9;
         }
-        log(sea); // your answer? => 
+        log(sea); // your answer? => 7
+        // if statement
     }
 
     /** Same as the previous method question. (前のメソッドの質問と同じ) */
@@ -91,7 +94,8 @@ public class Step02IfForTest extends PlainTestCase {
         if (land) {
             sea = 10;
         }
-        log(sea); // your answer? => 
+        log(sea); // your answer? => 8 -> 10
+        // 1st run line 84 sea =8, then land =true, finally run line 95 sea = 10
     }
 
     // ===================================================================================
@@ -107,7 +111,9 @@ public class Step02IfForTest extends PlainTestCase {
                 sea = stage;
             }
         }
-        log(sea); // your answer? => 
+        log(sea); // your answer? => dockside
+        log(stageList);
+        // stageList -> [broadway, dockside, hangar, magiclamp], i == 1, stage = "dockerside"
     }
 
     /** Same as the previous method question. (前のメソッドの質問と同じ) */
@@ -116,8 +122,10 @@ public class Step02IfForTest extends PlainTestCase {
         String sea = null;
         for (String stage : stageList) {
             sea = stage;
+            log(stage);
         }
-        log(sea); // your answer? => 
+        log(sea); // your answer? => idk -> magiclamp
+        // loop to the last string of stageList, so the output is magiclamp
     }
 
     /** Same as the previous method question. (前のメソッドの質問と同じ) */
@@ -129,11 +137,13 @@ public class Step02IfForTest extends PlainTestCase {
                 continue;
             }
             sea = stage;
+            log(sea);
             if (stage.contains("ga")) {
                 break;
             }
         }
-        log(sea); // your answer? => 
+        log(sea); // your answer? => hangar
+        // continue: loop one step; break: stop immediately
     }
 
     /** Same as the previous method question. (前のメソッドの質問と同じ) */
@@ -149,7 +159,7 @@ public class Step02IfForTest extends PlainTestCase {
             }
         });
         String sea = sb.toString();
-        log(sea); // your answer? => 
+        log(sea); // your answer? => idk -> dockside
     }
 
     // ===================================================================================
