@@ -35,7 +35,8 @@ public class Step04MethodTest extends PlainTestCase {
      */
     public void test_method_call_basic() {
         String sea = supplySomething();
-        log(sea); // your answer? =>
+        log(sea); // your answer? =>　over
+        // The output of the function: supplySomething
     }
 
     /** Same as the previous method question. (前のメソッドの質問と同じ) */
@@ -43,7 +44,8 @@ public class Step04MethodTest extends PlainTestCase {
         String sea = functionSomething("mystic");
         consumeSomething(supplySomething());
         runnableSomething();
-        log(sea); // your answer? => 
+        log(sea); // your answer? => msymys
+        // The output of the function: functionSomething
     }
 
     private String functionSomething(String name) {
@@ -76,7 +78,10 @@ public class Step04MethodTest extends PlainTestCase {
         if (!land) {
             sea = sea + mutable.getStageName().length();
         }
-        log(sea); // your answer? => 
+        log(mutable.getStageName().length());
+        log(sea); // your answer? => 901 -> 910
+        // !land is true because the helloMutable function doesn't return land
+        // I don't know why mutable.getStageName().length() = 6
     }
 
     private int helloMutable(int sea, Boolean land, St4MutableStage piari) {
@@ -110,12 +115,14 @@ public class Step04MethodTest extends PlainTestCase {
         hasAnnualPassport = true;
         int sea = inParkCount;
         offAnnualPassport(hasAnnualPassport);
+        log(hasAnnualPassport);
         for (int i = 0; i < 100; i++) {
             goToPark();
         }
         ++sea;
         sea = inParkCount;
-        log(sea); // your answer? => 
+        log(sea); // your answer? => 100
+        // offAnnualPassport didn't work, loop 100 times, i = 0, i++ -> 100
     }
 
     private void offAnnualPassport(boolean hasAnnualPassport) {
@@ -152,12 +159,18 @@ public class Step04MethodTest extends PlainTestCase {
      */
     public void test_method_making() {
         // comment out after making these methods
-        //String replaced = replaceCtoB(replaceAtoB("ABC"));
-        //String sea = addPrefix("broadway", replaced);
-        //if (isAvailableLogging()) {
-        //    showSea(sea);
-        //}
+        String replaced = replaceCtoB(replaceAtoB("ABC"));
+        String sea = addPrefix("broadway", replaced);
+        boolean availableLogging = true;
+        if (isAvailableLogging()) {
+            showSea(sea);
+        }
     }
 
     // write methods here
+    private String replaceAtoB(String text) { return text.replace( "A", "B"); }
+    private String replaceCtoB(String text) { return text.replace( "C", "B"); }
+    private String addPrefix(String prefix, String text) { return prefix + ":" + text; }
+    private boolean isAvailableLogging() { return true; }
+    private void showSea(String sea){ log(sea); }
 }
