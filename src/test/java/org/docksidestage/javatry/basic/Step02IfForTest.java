@@ -149,6 +149,7 @@ public class Step02IfForTest extends PlainTestCase {
     /** Same as the previous method question. (前のメソッドの質問と同じ) */
     public void test_for_listforeach_basic() {
         List<String> stageList = prepareStageList();
+        // stageList -> [broadway, dockside, hangar, magiclamp]
         StringBuilder sb = new StringBuilder();
         stageList.forEach(stage -> {
             if (sb.length() > 0) {
@@ -158,8 +159,10 @@ public class Step02IfForTest extends PlainTestCase {
                 sb.append(stage);
             }
         });
+        log(sb);
         String sea = sb.toString();
-        log(sea); // your answer? => idk -> dockside
+        log(sea); // your answer? => dockside, magiclamp -> dockside
+        // When dockside is appended in sb, the forEach loop will be stopped by "return;"? I am not sure.
     }
 
     // ===================================================================================
@@ -171,6 +174,14 @@ public class Step02IfForTest extends PlainTestCase {
      */
     public void test_iffor_making() {
         // write if-for here
+        List<String> stageList = prepareStageList();
+        StringBuilder output_list = new StringBuilder();
+        for (String stage : stageList) {
+            if (stage.contains("a")) {
+                output_list.append(stage);
+            }
+        }
+        log(output_list);
     }
 
     // ===================================================================================
@@ -180,18 +191,19 @@ public class Step02IfForTest extends PlainTestCase {
      * Change foreach statement to List's forEach() (keep result after fix) <br>
      * (foreach文をforEach()メソッドへの置き換えてみましょう (修正前と修正後で実行結果が同じになるように))
      */
+
     public void test_iffor_refactor_foreach_to_forEach() {
         List<String> stageList = prepareStageList();
         String sea = null;
-        for (String stage : stageList) {
-            if (stage.startsWith("br")) {
+        stageList.forEach(stage -> {
+            if (stage.startsWith("br")){
                 continue;
             }
             sea = stage;
             if (stage.contains("ga")) {
                 break;
             }
-        }
+        });
         log(sea); // should be same as before-fix
     }
 
