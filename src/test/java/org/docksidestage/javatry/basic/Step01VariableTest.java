@@ -232,6 +232,6 @@ public class Step01VariableTest extends PlainTestCase {
     private int b;
     private Integer c;
     public void test_variable_yourExercise() {
-        // write your code here
+        log(a, b, c); // write your code here
     }
 }
