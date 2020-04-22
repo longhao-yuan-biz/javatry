@@ -163,6 +163,7 @@ public class Step02IfForTest extends PlainTestCase {
         String sea = sb.toString();
         log(sea); // your answer? => dockside, magiclamp -> dockside
         // When dockside is appended in sb, the forEach loop will be stopped by "return;"? I am not sure.
+        // TODO [comment] you can check it, set log(stage); at the first line inside forEach statement by subaru (2020/04/22)
     }
 
     // ===================================================================================
@@ -181,6 +182,7 @@ public class Step02IfForTest extends PlainTestCase {
                 output_list.append(stage);
             }
         }
+        // TODO please show each item using loop by subaru (2020/04/22)
         log(output_list);
     }
 
@@ -196,8 +198,9 @@ public class Step02IfForTest extends PlainTestCase {
         List<String> stageList = prepareStageList();
         String[] sea = { null };
         boolean[] isEnd = { false };
+        // TODO [comment] Good!! by subaru (2020/04/22)
         stageList.forEach(stage -> {
-            if (stage.startsWith("br") || isEnd[0]){
+            if (stage.startsWith("br") || isEnd[0]) {
                 return;
             }
             sea[0] = stage;
@@ -214,21 +217,20 @@ public class Step02IfForTest extends PlainTestCase {
      * <pre>
      * _/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/
      * your question here (ここにあなたの質問を):
-     * 
+     *
      * _/_/_/_/_/_/_/_/_/_/
      * </pre>
      */
     public void test_iffor_yourExercise() {
         // write your code here
-            int x = 30;
-            int y = 10;
-            if( x == 30 ){
-                if( y == 10 ){
-                    System.out.print("X = 30 and Y = 10");
-                }
+        int x = 30;
+        int y = 10;
+        if (x == 30) {
+            if (y == 10) {
+                System.out.print("X = 30 and Y = 10");
             }
         }
-
+    }
 
     // ===================================================================================
     //                                                                        Small Helper
