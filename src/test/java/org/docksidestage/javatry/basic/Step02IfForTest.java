@@ -194,14 +194,15 @@ public class Step02IfForTest extends PlainTestCase {
 
     public void test_iffor_refactor_foreach_to_forEach() {
         List<String> stageList = prepareStageList();
-        String sea = null;
+        String[] sea = { null };
+        boolean[] isEnd = { false };
         stageList.forEach(stage -> {
-            if (stage.startsWith("br")){
-                continue;
+            if (stage.startsWith("br") || isEnd[0]){
+                return;
             }
-            sea = stage;
+            sea[0] = stage;
             if (stage.contains("ga")) {
-                break;
+                isEnd[0] = true;
             }
         });
         log(sea); // should be same as before-fix
@@ -219,7 +220,15 @@ public class Step02IfForTest extends PlainTestCase {
      */
     public void test_iffor_yourExercise() {
         // write your code here
-    }
+            int x = 30;
+            int y = 10;
+            if( x == 30 ){
+                if( y == 10 ){
+                    System.out.print("X = 30 and Y = 10");
+                }
+            }
+        }
+
 
     // ===================================================================================
     //                                                                        Small Helper
