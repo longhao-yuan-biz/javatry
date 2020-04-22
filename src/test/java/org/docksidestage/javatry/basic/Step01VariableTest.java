@@ -164,6 +164,8 @@ public class Step01VariableTest extends PlainTestCase {
         helpMethodArgumentMethodcall(sea, land);
         log(sea); // your answer? => harbor416
         // the difference between concat and append
+        // NOTE 一つは単純にStringBuilderにconcatメソッドがなくて、
+        // そして、なぜなくて、appendになった理由としてはStringBuilderはリストの構造でものをためているのです winkichanwi
     }
 
     private void helpMethodArgumentMethodcall(StringBuilder sea, int land) {
@@ -223,7 +225,7 @@ public class Step01VariableTest extends PlainTestCase {
      * <pre>
      * _/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/
      * your question here (ここにあなたの質問を):
-     * 
+     *
      * _/_/_/_/_/_/_/_/_/_/
      * </pre>
      */
