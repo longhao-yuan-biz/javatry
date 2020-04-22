@@ -205,7 +205,7 @@ public class Step01VariableTest extends PlainTestCase {
      * </pre>
      */
     public void test_variable_writing() {
-        // define variables here
+        String sea = "mystic"; // define variables here
     }
 
     // ===================================================================================
