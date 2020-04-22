@@ -38,6 +38,7 @@ public class Step01VariableTest extends PlainTestCase {
     public void test_variable_basic() {
         String sea = "mystic";
         log(sea); // your answer? => mystic
+        System.out.println(sea);
     }
 
     /** Same as the previous method question. (前のメソッドの質問と同じ) */
@@ -48,7 +49,7 @@ public class Step01VariableTest extends PlainTestCase {
         String dstore = "mai";
         sea = sea + land + piari + ":" + dstore;
         log(sea); // your answer? => mystic8null:mai
-        // TODO
+        // TODO test TODO, the 'null' is an integer so it will be printed
     }
 
     /** Same as the previous method question. (前のメソッドの質問と同じ) */
@@ -65,8 +66,9 @@ public class Step01VariableTest extends PlainTestCase {
         int sea = 94;
         int land = 415;
         sea = land;
-        land++;
+        land++; // same as ++land?
         log(sea); // your answer? => 415
+        log(land); // land => 416
     }
 
     /** Same as the previous method question. (前のメソッドの質問と同じ) */
@@ -77,45 +79,52 @@ public class Step01VariableTest extends PlainTestCase {
         sea = land.add(new BigDecimal(1));
         sea.add(new BigDecimal(1));
         log(sea); // your answer? => 416
+        // TODO why?
     }
 
     // ===================================================================================
     //                                                                   Instance Variable
     //                                                                   =================
-    private String instanceBroadway;
+    private String instanceBroad;
     private int instanceDockside;
     private Integer instanceHangar;
     private String instanceMagiclamp;
 
     /** Same as the previous method question. (前のメソッドの質問と同じ) */
     public void test_variable_instance_variable_default_String() {
-        String sea = instanceBroadway;
+        String sea = instanceBroad;
         log(sea); // your answer? => null
+        // what is "private mode"?
     }
 
     /** Same as the previous method question. (前のメソッドの質問と同じ) */
     public void test_variable_instance_variable_default_int() {
         int sea = instanceDockside;
         log(sea); // your answer? => 0
+        // idk why
     }
 
     /** Same as the previous method question. (前のメソッドの質問と同じ) */
     public void test_variable_instance_variable_default_Integer() {
         Integer sea = instanceHangar;
         log(sea); // your answer? => null
+        // idk why
     }
 
     /** Same as the previous method question. (前のメソッドの質問と同じ) */
     public void test_variable_instance_variable_via_method() {
-        instanceBroadway = "bbb";
+        instanceBroad = "bbb";
         instanceMagiclamp = "magician";
         helpInstanceVariableViaMethod(instanceMagiclamp);
-        String sea = instanceBroadway + "|" + instanceDockside + "|" + instanceHangar + "|" + instanceMagiclamp;
+        String sea = instanceBroad + "|" + instanceDockside + "|" + instanceHangar + "|" + instanceMagiclamp;
         log(sea); // your answer? => bigband|1|null|magician
+        log(instanceBroad);
+        log(instanceDockside);
+        log(instanceHangar);
     }
 
     private void helpInstanceVariableViaMethod(String instanceMagiclamp) {
-        instanceBroadway = "bigband";
+        instanceBroad = "bigband";
         ++instanceDockside;
         instanceMagiclamp = "burn";
     }
@@ -138,6 +147,8 @@ public class Step01VariableTest extends PlainTestCase {
         ++land;
         String landStr = String.valueOf(land); // is "416"
         sea.concat(landStr);
+        System.out.println("the lanStr in the function is:" + sea);
+        System.out.println("the sea in the function is:" + sea);
     }
 
     // -----------------------------------------------------
@@ -155,6 +166,7 @@ public class Step01VariableTest extends PlainTestCase {
         ++land;
         sea.append(land);
     }
+    // the difference between concat and append
 
     // -----------------------------------------------------
     //                                   Variable Assignment
