@@ -40,7 +40,11 @@ public class Step05ClassTest extends PlainTestCase {
         booth.buyOneDayPassport(7400);
         int sea = booth.getQuantity();
         log(sea); // your answer? => 9
+<<<<<<< Updated upstream
         // 10 - 1 = 9
+=======
+        // Question: how can I quickly access the code of "TicketBooth" class
+>>>>>>> Stashed changes
     }
 
     /** Same as the previous method question. (前のメソッドの質問と同じ) */
