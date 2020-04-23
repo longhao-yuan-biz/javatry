@@ -71,7 +71,7 @@ public class Step01VariableTest extends PlainTestCase {
         land++; //
         log(sea); // your answer? => 415
         log(land); // land => 416
-        // is land++ the same as ++land ?
+        // land++ : use land then +1, ++land: +1 then use land, no difference here
     }
 
     /** Same as the previous method question. (前のメソッドの質問と同じ) */
@@ -80,6 +80,7 @@ public class Step01VariableTest extends PlainTestCase {
         BigDecimal land = new BigDecimal(415);
         sea = land;
         sea = land.add(new BigDecimal(1));
+        log(sea);
         sea.add(new BigDecimal(1));
         log(sea); // your answer? => 416
         // add & BigDecimal
@@ -112,6 +113,7 @@ public class Step01VariableTest extends PlainTestCase {
         Integer sea = instanceHangar;
         log(sea); // your answer? => idk -> null
         // The default value of private integer is null
+        // The Iteger has to be instantiated before use
     }
 
     /** Same as the previous method question. (前のメソッドの質問と同じ) */
