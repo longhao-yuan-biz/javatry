@@ -15,7 +15,6 @@
  */
 package org.docksidestage.javatry.basic;
 
-import org.docksidestage.bizfw.basic.buyticket.Ticket;
 import org.docksidestage.bizfw.basic.buyticket.TicketBooth;
 import org.docksidestage.bizfw.basic.buyticket.TicketBooth.TicketShortMoneyException;
 import org.docksidestage.unit.PlainTestCase;
@@ -43,7 +42,7 @@ public class Step05ClassTest extends PlainTestCase {
         log(sea); // your answer? => 9
         // 10 - 1 = 9
         // Question: how can I quickly access the code of "TicketBooth" class
-
+        // NOTE pressing command and move your cursor to the word TicketBooth and right click, IntelliJ will bring you to the code by winkichanwi
     }
 
     /** Same as the previous method question. (前のメソッドの質問と同じ) */
@@ -52,6 +51,7 @@ public class Step05ClassTest extends PlainTestCase {
         booth.buyOneDayPassport(10000);
         Integer sea = booth.getSalesProceeds();
         log(sea); // your answer? => 10000
+        // TODO yuan Please amend your answer here after finishing test_class_letsFix_salesProceedsIncrease by winkichanwi
         // this.salesProceeds = this.salesProceeds + handedMoney;
     }
 
@@ -104,6 +104,7 @@ public class Step05ClassTest extends PlainTestCase {
         booth.buyOneDayPassport(10000);
         Integer sea = booth.getSalesProceeds();
         log(sea); // should be same as one-day price, visual check here
+        // TODO yuan You can just amend it directly in TicketBooth by winkichanwi
         // TicketBooth.java: Line 56 -> salesProceeds = ONE_DAY_PRICE;
     }
 
@@ -130,6 +131,7 @@ public class Step05ClassTest extends PlainTestCase {
      */
     public void test_class_letsFix_refactor_recycle() {
         TicketBooth booth = new TicketBooth();
+        // TODO yuan You should return a Ticket after buying passports, and add implementation classes by winkichanwi
         booth.buyPassport(20000, 2);
         log(booth.getQuantity(), booth.getSalesProceeds()); // should be same as before-fix
     }
