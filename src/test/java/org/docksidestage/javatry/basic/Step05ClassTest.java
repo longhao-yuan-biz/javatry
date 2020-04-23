@@ -116,10 +116,11 @@ public class Step05ClassTest extends PlainTestCase {
         int handMoney = 14000;
         int change = booth.buyTwoDayPassport(handMoney);
         Integer sea = booth.getSalesProceeds() + change;
-        log("The change is", change);
-        log(sea); // should be same as money
-
+        log("The change is", change); // 800
+        log("The sale proceeds is", booth.getSalesProceeds()); // 13200
+        log("The sum is", sea); // should be same as money -> checked
         // and show two-day passport quantity here
+        log("The remain ticket is", booth.getQuantity()); // 8
 
     }
 
@@ -140,41 +141,47 @@ public class Step05ClassTest extends PlainTestCase {
      * Now you cannot get ticket if you buy one-day passport, so return Ticket class and do in-park. <br>
      * (OneDayPassportを買ってもチケットをもらえませんでした。戻り値でTicketクラスを戻すようにしてインしましょう)
      */
+
+    /**
     public void test_class_moreFix_return_ticket() {
-        // comment out after modifying the method
+
         TicketBooth booth = new TicketBooth();
-        // oneDayPassport = booth.buyOneDayPassport(10000);
-        //log(oneDayPassport.getDisplayPrice()); // should be same as one-day price
-       // log(oneDayPassport.isAlreadyIn()); // should be false
-        //oneDayPassport.doInPark();
-       // log(oneDayPassport.isAlreadyIn()); // should be true
-    }
+        booth.buyPassport(10000, 1);
+        log(booth.getDisplayPrice()); // should be same as one-day price
+        log(oneDayPassport.isAlreadyIn()); // should be false
+        oneDayPassport.doInPark();
+        log(oneDayPassport.isAlreadyIn()); // should be true
+    }*/
 
     /**
      * Now also you cannot get ticket if two-day passport, so return class that has ticket and change. <br>
      * (TwoDayPassportもチケットをもらえませんでした。チケットとお釣りを戻すクラスを作って戻すようにしましょう)
-     */
+
     public void test_class_moreFix_return_whole() {
         // comment out after modifying the method
-        //TicketBooth booth = new TicketBooth();
-        //int handedMoney = 20000;
-        //TicketBuyResult twoDayPassportResult = booth.buyTwoDayPassport(handedMoney);
-        //Ticket twoDayPassport = twoDayPassportResult.getTicket();
-        //int change = twoDayPassportResult.getChange();
-        //log(twoDayPassport.getDisplayPrice() + change); // should be same as money
+        TicketBooth booth = new TicketBooth();
+        int handedMoney = 20000;
+        TicketBuyResult twoDayPassportResult = booth.buyTwoDayPassport(handedMoney);
+        Ticket twoDayPassport = twoDayPassportResult.getTicket();
+        int change = twoDayPassportResult.getChange();
+        log(twoDayPassport.getDisplayPrice() + change); // should be same as money
     }
+     */
 
     /**
      * Now you cannot judge ticket type "one-day or two-day?", so add method to judge it. <br>
      * (チケットをもらってもOneDayなのかTwoDayなのか区別が付きません。区別を付けられるメソッドを追加しましょう)
      */
+
+
     public void test_class_moreFix_type() {
         // your confirmation code here
         TicketBooth booth = new TicketBooth();
-        booth.buyPassport(20000, 1);
-        log(booth.getQuantity(), booth.getSalesProceeds());
+        int change = booth.buyPassport(20000, 1);
+        log(booth.getQuantity(), booth.getSalesProceeds(), change);
         // should be same as before-fix
     }
+
 
     // ===================================================================================
     //                                                                           Good Luck
