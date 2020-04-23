@@ -15,6 +15,7 @@
  */
 package org.docksidestage.javatry.basic;
 
+import org.docksidestage.bizfw.basic.buyticket.Ticket;
 import org.docksidestage.bizfw.basic.buyticket.TicketBooth;
 import org.docksidestage.bizfw.basic.buyticket.TicketBooth.TicketShortMoneyException;
 import org.docksidestage.unit.PlainTestCase;
@@ -170,19 +171,19 @@ public class Step05ClassTest extends PlainTestCase {
      */
     public void test_class_moreFix_type() {
         // comment out after modifying the method
-        TicketBooth booth1 = new TicketBooth();
+        TicketBooth oneDayPassport = new TicketBooth();
         int handedMoney2 = 10000;
-        booth1.buyPassport(handedMoney2, 1);
-        log(booth1.getChange()); // change -> 2600
+        oneDayPassport.buyPassport(handedMoney2, 1);
+        log(oneDayPassport.getChange()); // change -> 2600
         //Ticket twoDayPassport = twoDayPassportResult.getTicket();
-        log(booth1.getDisplayPrice() + booth1.getChange()); // -> 10000
+        log(oneDayPassport.getDisplayPrice() + oneDayPassport.getChange()); // -> 10000
 
-        TicketBooth booth2 = new TicketBooth();
+        TicketBooth twoDayPassport = new TicketBooth();
         int handedMoney1 = 20000;
-        booth2.buyPassport(handedMoney1, 2);
-        log(booth2.getChange()); // change -> 6800
+        twoDayPassport.buyPassport(handedMoney1, 2);
+        log(twoDayPassport.getChange()); // change -> 6800
         //Ticket twoDayPassport = twoDayPassportResult.getTicket();
-        log(booth2.getDisplayPrice() + booth2.getChange()); // -> 20000
+        log(twoDayPassport.getDisplayPrice() + twoDayPassport.getChange()); // -> 20000
 
     }
 
@@ -207,6 +208,8 @@ public class Step05ClassTest extends PlainTestCase {
      */
     public void test_class_moreFix_useInterface() {
         // your confirmation code here
+        TicketBooth booth = new TicketBooth();
+        Ticket oneDayPassport = booth.buyPassport(10000, 1).getTicket();
     }
 
     /**
@@ -215,6 +218,13 @@ public class Step05ClassTest extends PlainTestCase {
      */
     public void test_class_moreFix_wonder() {
         // your confirmation code here
+        TicketBooth fourDayPassport = new TicketBooth();
+        int handedMoney1 = 30000;
+        fourDayPassport.buyPassport(handedMoney1, 4);
+        log(fourDayPassport.getChange()); // change -> 7600
+        log(fourDayPassport.getDisplayPrice() + fourDayPassport.getChange()); // -> 30000
+        fourDayPassport.doInPark(); // do in park
+        log(fourDayPassport.isAlreadyIn());
     }
 
     /**
