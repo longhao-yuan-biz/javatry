@@ -82,6 +82,7 @@ public class Step04MethodTest extends PlainTestCase {
         log(sea); // your answer? => 901 -> 910
         // !land is true because the helloMutable function doesn't return land
         // I don't know why mutable.getStageName().length() = 6
+        // TODO try reading the behaviour of .setStageName in St4MutableStage. If you still dont know the reason, ask us. winkichanwi
     }
 
     private int helloMutable(int sea, Boolean land, St4MutableStage piari) {
@@ -168,9 +169,19 @@ public class Step04MethodTest extends PlainTestCase {
     }
 
     // write methods here
-    private String replaceAtoB(String text) { return text.replace( "A", "B"); }
-    private String replaceCtoB(String text) { return text.replace( "C", "B"); }
-    private String addPrefix(String prefix, String text) { return prefix + ":" + text; }
-    private boolean isAvailableLogging() { return true; }
-    private void showSea(String sea){ log(sea); }
+    private String replaceAtoB(String text) {
+        return text.replace("A", "B");
+    }
+    private String replaceCtoB(String text) {
+        return text.replace("C", "B");
+    }
+    private String addPrefix(String prefix, String text) {
+        return prefix + ":" + text;
+    }
+    private boolean isAvailableLogging() {
+        return true;
+    }
+    private void showSea(String sea) {
+        log(sea);
+    }
 }
