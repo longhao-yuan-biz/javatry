@@ -209,7 +209,7 @@ public class Step05ClassTest extends PlainTestCase {
     public void test_class_moreFix_useInterface() {
         // your confirmation code here
         TicketBooth booth = new TicketBooth();
-        Ticket oneDayPassport = booth.buyPassport(10000, 1).getTicket();
+        booth.buyPassport(10000, 1);
     }
 
     /**
