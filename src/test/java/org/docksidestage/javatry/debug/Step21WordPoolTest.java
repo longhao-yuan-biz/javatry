@@ -42,7 +42,6 @@ public class Step21WordPoolTest extends PlainTestCase {
 
         // act
         Word found = pool.find(2L);
-
         // assert
         assertEquals("日本語", found.getLanguage().name);
         assertEquals("柿", found.getWord());
@@ -62,16 +61,15 @@ public class Step21WordPoolTest extends PlainTestCase {
     public void test_findId() {
         // arrange
         WordPool pool = new WordPool();
-        List<String> words = Arrays.asList("私", "柿", "荼", "昂");
+        List<String> words = Arrays.asList("私", "柿", "荼", "昴");
 
         for (int i = 0; i < words.size(); i++) {
             // act
             Long actual = pool.findId(words.get(i));
 
             // assert
-            assertEquals(i + 1, actual.intValue());
+            assertEquals(i + 1 , actual.intValue());
         }
-
     }
 
     public void test_update() {
@@ -83,6 +81,7 @@ public class Step21WordPoolTest extends PlainTestCase {
         Word result = pool.update("日本語", "つくえ", "ぼうし");
 
         // assert
+        System.out.println(result.getWord());
         assertEquals("ぼうし", result.getWord());
         assertEquals("日本語", result.getLanguage().name);
         assertEquals(created.getKey(), pool.findId("ぼうし"));
