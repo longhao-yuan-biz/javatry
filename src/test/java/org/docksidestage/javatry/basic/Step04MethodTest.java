@@ -82,7 +82,7 @@ public class Step04MethodTest extends PlainTestCase {
         log(sea); // your answer? => 901 -> 910
         // !land is true because the helloMutable function doesn't return land
         // I don't know why mutable.getStageName().length() = 6
-        // TODO try reading the behaviour of .setStageName in St4MutableStage. If you still dont know the reason, ask us. winkichanwi
+        // TODO yuan try reading the behaviour of .setStageName in St4MutableStage. If you still dont know the reason, ask us. by winkichanwi
     }
 
     private int helloMutable(int sea, Boolean land, St4MutableStage piari) {
