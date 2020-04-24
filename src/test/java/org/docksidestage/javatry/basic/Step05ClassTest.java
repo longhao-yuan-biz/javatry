@@ -42,7 +42,6 @@ public class Step05ClassTest extends PlainTestCase {
         int sea = booth.getQuantity();
         log(sea); // your answer? => 9
         // 10 - 1 = 9
-        // Question: how can I quickly access the code of "TicketBooth" class
 
     }
 
