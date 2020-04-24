@@ -62,6 +62,9 @@ public class TicketBooth {
         }
     }
 
+    // ===================================================================================
+
+
     public int buyTwoDayPassport(int handedMoney) {
         if (quantity <= 1) {
             throw new TicketSoldOutException("Sold out");
