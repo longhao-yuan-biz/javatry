@@ -41,12 +41,12 @@ public class Step05ClassTest extends PlainTestCase {
         int sea = booth.getQuantity();
         log(sea); // your answer? => 9
         // 10 - 1 = 9
-<<<<<<< HEAD
+//<<<<<<< HEAD
 
-=======
+//=======
         // Question: how can I quickly access the code of "TicketBooth" class
         // NOTE pressing command and move your cursor to the word TicketBooth and right click, IntelliJ will bring you to the code by winkichanwi
->>>>>>> c940b0744eb2474fa9be4803db4e28770a8ee3cc
+//>>>>>>> c940b0744eb2474fa9be4803db4e28770a8ee3cc
     }
 
     /** Same as the previous method question. (前のメソッドの質問と同じ) */
