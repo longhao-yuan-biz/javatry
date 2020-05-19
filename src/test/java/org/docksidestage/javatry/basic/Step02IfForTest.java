@@ -18,6 +18,7 @@ package org.docksidestage.javatry.basic;
 import java.util.ArrayList;
 import java.util.List;
 
+import ch.qos.logback.core.net.SyslogOutputStream;
 import org.docksidestage.unit.PlainTestCase;
 
 /**
@@ -180,6 +181,7 @@ public class Step02IfForTest extends PlainTestCase {
         for (String stage : stageList) {
             if (stage.contains("a")) {
                 output_list.append(stage);
+                System.out.println(stage);
             }
         }
         // TODO please show each item using loop by subaru (2020/04/22)

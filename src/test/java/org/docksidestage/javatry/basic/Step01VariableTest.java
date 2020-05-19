@@ -152,7 +152,7 @@ public class Step01VariableTest extends PlainTestCase {
         ++land;
         String landStr = String.valueOf(land); // is "416"
         sea.concat(landStr);
-        System.out.println("the lanStr in the function is:" + sea);
+        System.out.println("the lanStr in the function is:" + landStr);
         System.out.println("the sea in the function is:" + sea);
     }
 

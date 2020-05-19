@@ -1,5 +1,5 @@
 /*
- * Copyright 2019-2019 the original author or authors.
+ * Copyright 2019-2020 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,6 +15,8 @@
  */
 package org.docksidestage.bizfw.basic.buyticket;
 
+import java.io.OutputStream;
+
 /**
  * @author jflute
  */
@@ -25,17 +27,13 @@ public class TicketBooth {
     //                                                                          ==========
     private static final int MAX_QUANTITY = 10;
     private static final int ONE_DAY_PRICE = 7400; // when 2019/06/15
-    private static final int TWO_DAY_PRICE = 13200; // when 2020/04/23
-    private static final int FOUR_DAY_PRICE = 22400; // when 2020/04/23
+    private static final int TWO_DAY_PRICE = 13200; // when 2019/06/15
 
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
     private int quantity = MAX_QUANTITY;
-    private Integer salesProceeds;
-    private Integer price;
-    private boolean isAlreadyIn = false;
-    private Integer change;
+    private Integer salesProceeds = 0;
 
     // ===================================================================================
     //                                                                         Constructor
@@ -50,84 +48,28 @@ public class TicketBooth {
         if (quantity <= 0) {
             throw new TicketSoldOutException("Sold out");
         }
+        // --quantity;
         if (handedMoney < ONE_DAY_PRICE) {
             throw new TicketShortMoneyException("Short money: " + handedMoney);
-        }
-        if (salesProceeds != null) {
-            salesProceeds = salesProceeds + ONE_DAY_PRICE;
-            --quantity;
         } else {
-            salesProceeds = ONE_DAY_PRICE;
+            salesProceeds += ONE_DAY_PRICE;
             --quantity;
         }
     }
-
-    // ===================================================================================
-
 
     public int buyTwoDayPassport(int handedMoney) {
         if (quantity <= 1) {
             throw new TicketSoldOutException("Sold out");
         }
-
+        // --quantity;
         if (handedMoney < TWO_DAY_PRICE) {
             throw new TicketShortMoneyException("Short money: " + handedMoney);
-        }
-        if (salesProceeds != null) {
-            salesProceeds = salesProceeds + handedMoney;
-            quantity -=2;
-        } else {
+        }else {
             salesProceeds = TWO_DAY_PRICE;
-            quantity -=2;
         }
-        int change = handedMoney - TWO_DAY_PRICE;
-        return change;
+        return handedMoney - TWO_DAY_PRICE;
     }
 
-    public void buyPassport(int handedMoney, int DAY) {
-        if (quantity <=  0 && DAY ==1) {
-            throw new TicketSoldOutException("Sold out");
-        }
-        if (quantity <=  1 && DAY ==2) {
-            throw new TicketSoldOutException("Sold out");
-        }
-        if (quantity <=  3 && DAY ==4) {
-            throw new TicketSoldOutException("Sold out");
-        }
-
-        if (handedMoney < ONE_DAY_PRICE && DAY ==1) {
-            throw new TicketShortMoneyException("Short money: " + handedMoney);
-        }
-        if (handedMoney < TWO_DAY_PRICE && DAY ==2) {
-            throw new TicketShortMoneyException("Short money: " + handedMoney);
-        }
-        if (handedMoney < FOUR_DAY_PRICE && DAY ==4) {
-            throw new TicketShortMoneyException("Short money: " + handedMoney);
-        }
-        if (salesProceeds != null) {
-            salesProceeds = salesProceeds + handedMoney;
-
-        } else if(DAY == 1){
-            salesProceeds = ONE_DAY_PRICE;
-            price = ONE_DAY_PRICE;
-            --quantity;
-            change = handedMoney - price;
-        }else if(DAY == 2){
-            salesProceeds = TWO_DAY_PRICE;
-            price = TWO_DAY_PRICE;
-            quantity -=2;
-            change = handedMoney - price;
-        }else{
-            salesProceeds = FOUR_DAY_PRICE;
-            price = FOUR_DAY_PRICE;
-            quantity -=4;
-            change = handedMoney - price;
-        }
-        }
-
-    public void doInPark(){
-        isAlreadyIn = true;
-    }
 
     public static class TicketSoldOutException extends RuntimeException {
 
@@ -156,15 +98,5 @@ public class TicketBooth {
 
     public Integer getSalesProceeds() {
         return salesProceeds;
-    }
-    public Integer getDisplayPrice() {
-        return price;
-    }
-    public Integer getChange() {
-        return change;
-    }
-
-    public boolean isAlreadyIn() {
-        return isAlreadyIn;
     }
 }
