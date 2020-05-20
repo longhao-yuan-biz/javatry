@@ -15,17 +15,23 @@
  */
 package org.docksidestage.javatry.colorbox;
 
+import java.util.Collection;
+import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Stream;
 
+import org.apache.catalina.filters.ExpiresFilter;
 import org.docksidestage.bizfw.colorbox.ColorBox;
 import org.docksidestage.bizfw.colorbox.yours.YourPrivateRoom;
 import org.docksidestage.unit.PlainTestCase;
+import org.eclipse.jdt.internal.compiler.env.ISourceType;
+import org.w3c.dom.ls.LSOutput;
 
 /**
  * The test of String with color-box, using Stream API you can. <br>
  * Show answer by log() for question of javadoc.
  * @author jflute
- * @author your_name_here
+ * @author Longhao Yuan
  */
 public class Step12StreamStringTest extends PlainTestCase {
 
@@ -38,12 +44,15 @@ public class Step12StreamStringTest extends PlainTestCase {
      */
     public void test_length_basic() {
         List<ColorBox> colorBoxList = new YourPrivateRoom().getColorBoxList();
-        String answer = colorBoxList.stream()
+        System.out.println(colorBoxList
+                .stream()
                 .findFirst()
                 .map(colorBox -> colorBox.getColor().getColorName())
                 .map(colorName -> colorName.length() + " (" + colorName + ")")
-                .orElse("*not found");
-        log(answer);
+                .orElse("*not found"));
+        // check the content of the stream.
+        System.out.println(colorBoxList);
+        colorBoxList.stream().forEach(System.out::println);
     }
 
     /**
@@ -51,6 +60,8 @@ public class Step12StreamStringTest extends PlainTestCase {
      * (カラーボックスに入ってる文字列の中で、一番長い文字列は？)
      */
     public void test_length_findMax() {
+        List<ColorBox> colorBoxList = new YourPrivateRoom().getColorBoxList();
+        System.out.println(colorBoxList.stream());
     }
 
     /**
