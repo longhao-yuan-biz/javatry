@@ -22,7 +22,6 @@ import org.docksidestage.bizfw.basic.objanimal.flier.FastFlier;
 import org.docksidestage.bizfw.basic.objanimal.loud.AlarmClock;
 import org.docksidestage.bizfw.basic.objanimal.loud.Loudable;
 import org.docksidestage.bizfw.basic.objanimal.runner.FastRunner;
-import org.docksidestage.bizfw.basic.objanimal.flier.FastFlier;
 import org.docksidestage.unit.PlainTestCase;
 
 /**
