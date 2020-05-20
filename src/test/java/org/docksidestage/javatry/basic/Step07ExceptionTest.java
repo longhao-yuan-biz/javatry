@@ -101,6 +101,7 @@ public class Step07ExceptionTest extends PlainTestCase {
      * And What is exception class name displayed at the last "Caused By:" of stack trace? <br>
      * (catchブロックの変数 sea, land の中身は？また、スタックトレースの最後の "Caused By:" で表示されている例外クラス名は？)
      */
+    // Throw exception and use other methods to catch.
     public void test_exception_cause_basic() {
         String sea = "mystic";
         String land = "oneman";
@@ -111,9 +112,9 @@ public class Step07ExceptionTest extends PlainTestCase {
             Throwable cause = e.getCause();
             sea = cause.getMessage();
             land = cause.getClass().getSimpleName();
-            log(sea); // your answer? => 
-            log(land); // your answer? => 
-            log(e); // your answer? => 
+            log("sea is: " + sea); // your answer? => idk -> "Failed to call the second help method: -1"
+            log("land is: " + land); // your answer? => IllegalArgumentException
+            log("e is: " + e); // your answer? => idk -> java.lang.IllegalStateException: Failed to call the second help method: -1
         }
     }
 
@@ -138,7 +139,7 @@ public class Step07ExceptionTest extends PlainTestCase {
 
     private void throwCauseThirdLevel(int count) {
         if (count < 0) {
-            Integer.valueOf("piari");
+            Integer.valueOf("piari"); // exception here: IllegalArgumentException
         }
     }
 
