@@ -15,13 +15,17 @@
  */
 package org.docksidestage.javatry.colorbox;
 
+import java.sql.SQLOutput;
 import java.util.Collection;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import org.apache.catalina.filters.ExpiresFilter;
 import org.docksidestage.bizfw.colorbox.ColorBox;
+import org.docksidestage.bizfw.colorbox.space.BoxSpace;
 import org.docksidestage.bizfw.colorbox.yours.YourPrivateRoom;
 import org.docksidestage.unit.PlainTestCase;
 import org.eclipse.jdt.internal.compiler.env.ISourceType;
@@ -60,7 +64,16 @@ public class Step12StreamStringTest extends PlainTestCase {
      */
     public void test_length_findMax() {
         List<ColorBox> colorBoxList = new YourPrivateRoom().getColorBoxList();
-        System.out.println(colorBoxList.stream());
+        Stream<BoxSpace> boxSpace = colorBoxList.stream()
+                .flatMap(colorBox -> colorBox.getSpaceList().stream());
+
+                boxSpace
+                .map(b -> b.getContent())
+                .filter(obj -> obj instanceof String)
+//                .forEach(System.out::println);
+                .map(obj -> (String) obj)
+                .max(Comparator.comparingInt(e -> e.length()))
+                .ifPresent(System.out::println);
     }
 
     /**
@@ -68,6 +81,14 @@ public class Step12StreamStringTest extends PlainTestCase {
      * (カラーボックスに入ってる文字列の中で、一番長いものと短いものの差は何文字？)
      */
     public void test_length_findMaxMinDiff() {
+        List<ColorBox> colorBoxList = new YourPrivateRoom().getColorBoxList();
+        List<String> str = colorBoxList.stream()
+                .flatMap(colorBox -> colorBox.getSpaceList().stream())
+                .map(boxSpace -> boxSpace.getContent())
+                .filter(obj -> obj instanceof String)
+                .map(obj -> (String) obj)
+                .collect(Collectors.toList());
+        System.out.println(str.get(0).length() - str.get(1).length());
     }
 
     // has small #adjustmemts from ClassicStringTest
@@ -95,8 +116,9 @@ public class Step12StreamStringTest extends PlainTestCase {
                 colorBoxList
                 .stream()
                 .map(colorBox -> colorBox.getColor().getColorName())
-                .max(Comparator.comparing(String::length))
-                .ifPresent(System.out::println);
+                .sorted(Comparator.comparing(String::length).reversed())
+                .limit(3) // TODO: the number of "max length color-boxes" is 3. I dont know how to output them all...
+                .forEach(System.out::println);
     }
 
     // ===================================================================================
