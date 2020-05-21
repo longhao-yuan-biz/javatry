@@ -15,6 +15,9 @@
  */
 package org.docksidestage.javatry.framework;
 
+import static org.eclipse.jdt.internal.compiler.lookup.SyntheticMethodBinding.FactoryMethod;
+
+import org.docksidestage.bizfw.di.nondi.*;
 import org.docksidestage.unit.PlainTestCase;
 
 /**
@@ -34,11 +37,18 @@ public class Step41DependencyInjectionBeginnerTest extends PlainTestCase {
      */
     public void test_whatis_DependencyInjection() {
         // _/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/
+        // Reference: https://www.vogella.com/tutorials/DependencyInjection/article.html
         // What is Dependency Injection?
-        // - - - - - (your answer?)
-        //
-        //
-        //
+
+        // Definition:
+        // Dependency injection is a technique whereby one object (or static method) supplies the dependencies of another object.
+
+        // My point of view:
+        // In the situation of 1) a class C wants to implement a method M and the implementation of M needs to call class C1,
+        // or 2) the instantiation of an object O of class C is depend on the object O1 of class C1,
+        // the instantiation of objects is highly coupling and difficult to maintain.
+        // So, it is better to write the dependency class C1 as an abstract class and INJECT the object of C1 (the dependency
+        // of O) into the Object O.
         // _/_/_/_/_/_/_/_/_/_/
     }
 
@@ -52,6 +62,11 @@ public class Step41DependencyInjectionBeginnerTest extends PlainTestCase {
     public void test_nondi_difference_between_first_and_second() {
         // your answer? => 
         // and your confirmation code here freely
+        NonDiDirectFirstAction nonDiDirectFirstAction = new NonDiDirectFirstAction();
+        nonDiDirectFirstAction.callFriend();
+
+        NonDiDirectSecondAction nonDiDirectSecondAction = new NonDiDirectSecondAction();
+        nonDiDirectSecondAction.callFriend();
     }
 
     /**
@@ -61,6 +76,11 @@ public class Step41DependencyInjectionBeginnerTest extends PlainTestCase {
     public void test_nondi_difference_between_second_and_FactoryMethod() {
         // your answer? => 
         // and your confirmation code here freely
+        NonDiDirectSecondAction nonDiDirectSecondAction = new NonDiDirectSecondAction();
+        nonDiDirectSecondAction.callFriend();
+
+        NonDiFactoryMethodAction nonDiFactoryMethodAction = new NonDiFactoryMethodAction();
+        nonDiFactoryMethodAction.callFriend();
     }
 
     /**
@@ -70,6 +90,11 @@ public class Step41DependencyInjectionBeginnerTest extends PlainTestCase {
     public void test_nondi_difference_between_FactoryMethod_and_IndividualFactory() {
         // your answer? => 
         // and your confirmation code here freely
+        NonDiFactoryMethodAction nonDiFactoryMethodAction = new NonDiFactoryMethodAction();
+        nonDiFactoryMethodAction.callFriend();
+
+        NonDiIndividualFactoryAction nonDiIndividualFactoryAction = new NonDiIndividualFactoryAction();
+        nonDiIndividualFactoryAction.callFriend();
     }
 
     // ===================================================================================
@@ -82,6 +107,7 @@ public class Step41DependencyInjectionBeginnerTest extends PlainTestCase {
     public void test_usingdi_difference_between_Accessor_and_Annotation() {
         // your answer? => 
         // and your confirmation code here freely
+        //UsingDiAccessorAction
     }
 
     /**
